@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const connectDb = async () => {
-    console.log(process.env.MONGODB_URI);
+    console.log(process.env.MONGO_URI);
     
   if (mongoose.connections[0].readyState) {
     console.log("Already connected to MongoDB");

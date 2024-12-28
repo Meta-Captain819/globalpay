@@ -10,7 +10,7 @@ const Login = () => {
 
       <div className="space-y-4 w-full max-w-xs">
         <button
-          onClick={() => signIn("google" ,{ callbackUrl: "/" })}
+          onClick={() => signIn("google" ,{ callbackUrl: "/editprofile" })}
           className="w-full py-2 px-4 bg-red-400 rounded-lg hover:bg-red-600 focus:outline-none flex justify-center items-center gap-2"
         >
           Login with Google

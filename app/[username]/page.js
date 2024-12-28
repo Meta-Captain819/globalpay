@@ -1,5 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
@@ -42,6 +47,15 @@ const ProfilePage = () => {
   // Save profile to local storage
   const saveProfile = () => {
     localStorage.setItem("profile", JSON.stringify(profile));
+    toast('Saved Successfully', {
+      position: 'top-right',
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      theme: 'dark',
+    });
   };
 
   return (
@@ -90,7 +104,7 @@ const ProfilePage = () => {
         <h2 className="text-2xl font-bold text-white">
           {profile.name || "Your Name"}
         </h2>
-        <p className="text-white mt-2">@{profile.username ? profile.username: profile.email.split("@")[0]}</p>
+        <p className="text-white mt-2">@{profile.username && profile.username}</p>
         <p className="text-white mt-2">{profile.email || "email@example.com"}</p>
       </div>
 
@@ -191,6 +205,8 @@ const ProfilePage = () => {
         </button>
       </div>
     </form>
+    <ToastContainer />
+
     </div>
   );
 };
