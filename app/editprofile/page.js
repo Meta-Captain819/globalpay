@@ -17,7 +17,6 @@ const ProfilePage = () => {
     const [coverPreview, setCoverPreview] = useState(null);
     const [error, setError] = useState("");
 
-    // Load saved data from localStorage on component mount
     useEffect(() => {
         const savedData = JSON.parse(localStorage.getItem("profile"));
         if (savedData) {
@@ -27,13 +26,13 @@ const ProfilePage = () => {
         }
     }, []);
 
-    // Handle input changes
+   
     const handleChange = (e) => {
         const { name, value } = e.target;
         setprofile({ ...profile, [name]: value });
     };
 
-    // Handle file input changes for profile and cover pictures
+   
     const handleFileChange = (e) => {
         const { name, files } = e.target;
         if (files && files[0]) {
@@ -47,27 +46,27 @@ const ProfilePage = () => {
         }
     };
 
-    // Form submission
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Validation
+        
         const { name, username, email, phone, profilePicture, coverPicture } = profile;
         if (!name || !username || !email || !phone || !profilePicture || !coverPicture) {
             setError("All fields are required.");
             return;
         }
 
-        // Username validation: must contain both alphabets and numbers
+        
         const usernameRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+$/;
         if (!usernameRegex.test(username)) {
             setError("Username must contain both alphabets and numbers.");
             return;
         }
 
-        setError(""); // Clear any previous error
+        setError(""); 
 
-        // Save to localStorage
+        
         localStorage.setItem("profile", JSON.stringify(profile));
         toast('Saved Successfully', {
             position: 'top-right',

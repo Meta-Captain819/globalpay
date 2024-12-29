@@ -24,7 +24,7 @@ const Dashboard = () => {
     coverPicture: null,
   });
 
-  // Set initial form data based on session data
+
   useEffect(() => {
     if (session?.user) {
       setFormData({
@@ -54,7 +54,7 @@ const Dashboard = () => {
       setFormData((prev) => ({ ...prev, [name]: file }));
       const reader = new FileReader();
 
-      // Generate a preview for images
+      
       reader.onload = () => {
         setPreviews((prev) => ({ ...prev, [name]: reader.result }));
       };
@@ -63,40 +63,40 @@ const Dashboard = () => {
   };
 
   const checkUsername = async () => {
-    if (!formData.username) return; // If the username is empty, exit early
+    if (!formData.username) return; 
 
-    setLoading(true); // Set loading state to true while fetching
+    setLoading(true); 
 
     try {
-      // Make an API request to check if the username is available
+      
       const response = await fetch(`/api/check-username?username=${formData.username}`);
 
-      // Ensure the response is valid and contains the data we expect
+      
       if (response.ok) {
         const data = await response.json();
 
-        // Update the state based on the response from the backend
+        
         setUsernameStatus(data.available ? "available" : "unavailable");
       } else {
-        // Handle non-OK responses
+      
         setUsernameStatus("error");
         console.error("Error checking username:", response.statusText);
       }
     } catch (error) {
-      // Handle errors in the API call
+     
       console.error("Error checking username:", error);
       setUsernameStatus("error");
     } finally {
-      setLoading(false); // Set loading state back to false after the request
+      setLoading(false); 
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitted Data:", formData);
-    setSavedData(formData); // Save the form data
+    setSavedData(formData); 
   
-    // Update session after form submission
+   
     await signIn("credentials", { redirect: false, ...formData });
   
     alert("Data Saved Successfully!");

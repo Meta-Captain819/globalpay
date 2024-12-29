@@ -29,27 +29,27 @@ export const authOptions= NextAuth({
         try {
           await connectDb();
 
-          // Check if user already exists
+          
           const existingUser = await User.findOne({ email: profile.email });
 
           if (!existingUser) {
-            // Create new user if not found
+            
             const newUser = new User({
               name: profile.name,
               email: profile.email,
-              username: profile.email.split("@")[0], // Generate username from email
+              username: profile.email.split("@")[0], 
               profilePicture: profile.picture,
             });
             await newUser.save();
           }
 
-          return true; // Allow sign-in
+          return true; 
         } catch (error) {
           console.error("Error in signIn callback:", error.message);
-          return false; // Deny sign-in if there's an error
+          return false; 
         }
       }
-      return false; // Deny sign-in for other providers
+      return false; 
     },
     async session({ session, token }) {
       try {

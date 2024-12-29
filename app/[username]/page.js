@@ -17,7 +17,7 @@ const ProfilePage = () => {
   });
   const [payments, setPayments] = useState([]);
 
-  // Fetch profile and payments from local storage on component mount
+ 
   useEffect(() => {
     const storedProfile = JSON.parse(localStorage.getItem("profile")) || {};
     const storedPayments = JSON.parse(localStorage.getItem("payment")) || [];
@@ -25,13 +25,13 @@ const ProfilePage = () => {
     setPayments(storedPayments);
   }, []);
 
-  // Handle profile changes
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfile((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle image uploads
+ 
   const handleImageUpload = (e, type) => {
     const file = e.target.files[0];
     if (file) {
@@ -44,7 +44,7 @@ const ProfilePage = () => {
 
   };
 
-  // Save profile to local storage
+ 
   const saveProfile = () => {
     localStorage.setItem("profile", JSON.stringify(profile));
     toast('Saved Successfully', {
