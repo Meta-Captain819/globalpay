@@ -80,7 +80,7 @@ const AboutPage = () => {
               {
                 title: "24/7 Support",
                 description:
-                  "We’re here to assist you anytime, anywhere.",
+                  "We're here to assist you anytime, anywhere.",
                 icon: "📞",
               },
               {
@@ -112,12 +112,11 @@ const AboutPage = () => {
             Behind GlobalPay is a team of passionate professionals dedicated to
             making global payments simple and efficient.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8">
             {[
-              { name: "Alice Johnson", role: "CEO", image: "/images/team1.jpg" },
-              { name: "John Smith", role: "CTO", image: "/images/team2.jpg" },
-              { name: "Emily Brown", role: "Lead Designer", image: "/images/team3.jpg" },
-              { name: "Michael Lee", role: "Operations Manager", image: "/images/team4.jpg" },
+              { name: "Muzammil Mehdi", role: "CEO", image: "/male.svg" },
+              { name: "Muzammil Mehdi", role: "CTO", image: "/male.svg" },
+              { name: "Muzammil Mehdi", role: "Senior Developer", image: "/male.svg" },
             ].map((member, index) => (
               <div key={index} className="text-center">
                 <img

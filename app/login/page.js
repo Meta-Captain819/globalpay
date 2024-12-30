@@ -6,7 +6,7 @@ import Image from "next/image";
 const Login = () => {
   return (
     <div className="min-h-screen text-white flex flex-col justify-center items-center">
-      <h1 className="text-3xl font-bold mb-8">Login to Get Me a Chai</h1>
+      <h1 className="text-3xl font-bold mb-8 flex gap-2">Login to <img src="/pay.svg" alt="" width={30} height={30} />GlobalPay</h1>
 
       <div className="space-y-4 w-full max-w-xs">
         <button
