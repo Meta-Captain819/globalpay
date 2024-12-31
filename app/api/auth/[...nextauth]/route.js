@@ -22,6 +22,7 @@ export const authOptions= NextAuth({
       clientSecret: process.env.APPLE_CLIENT_SECRET,
     }),
   ],
+  
 
   callbacks: {
     async signIn({ user, account, profile }) {
